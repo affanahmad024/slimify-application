@@ -35,7 +35,7 @@ export async function loader(args: Route.LoaderArgs) {
 
   // Protect the route by checking if the user is signed in
   if (!userId) {
-    return redirect("/sign-in?redirect_url=" + args.request.url);
+    return redirect("/");
   }
 
   const data = await Weight.find({ userId });
