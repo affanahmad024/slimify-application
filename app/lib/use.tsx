@@ -44,6 +44,6 @@ export const sortData = (data: weightRec[]) => {
     return dateNumA - dateNumB;
   });
 
-  console.log("inside data", info);
+  // console.log("inside data", info);
   return info;
 };

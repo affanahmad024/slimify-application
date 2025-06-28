@@ -10,7 +10,7 @@ export async function loader(args: Route.LoaderArgs) {
 
   // Protect the route by checking if the user is signed in
   if (!userId) {
-    return redirect('/')
+    return redirect('/unauthorized')
   }
   return null
 }

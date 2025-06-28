@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Legend,
 } from "recharts";
 import type { weightRec } from "~/routes/weight-dashboard";
 
@@ -14,7 +15,7 @@ interface WeightGraphProps {
   data: weightRec[];
 }
 
-const WeightGraph: React.FC<WeightGraphProps> = ({ data }) => {
+const WeightGraph: React.FC<WeightGraphProps> = ({ data }: WeightGraphProps) => {
   // Format data for the chart
   const chartData = data
     .map((record) => ({

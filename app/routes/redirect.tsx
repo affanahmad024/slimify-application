@@ -1,7 +1,7 @@
 import { redirect } from 'react-router'
 import { getAuth } from '@clerk/react-router/ssr.server'
 import { createClerkClient } from '@clerk/react-router/api.server'
-import type { Route } from './+types/profile'
+import type { Route } from './+types/redirect'
 
 export async function loader(args: Route.LoaderArgs) {
   // Use `getAuth()` to get the user's ID
@@ -10,17 +10,9 @@ export async function loader(args: Route.LoaderArgs) {
 
   // Protect the route by checking if the user is signed in
   if (!userId) {
-    return redirect('/sign-in?redirect_url=' + args.request.url)
-  }
-
-  // Instantiate the Backend SDK and get the user's full `Backend User` object
-  const user = await createClerkClient({ secretKey: process.env.CLERK_SECRET_KEY }).users.getUser(
-    userId,
-  )
-  console.log("first",JSON.stringify(user))
-  return {
-    user: JSON.stringify(user),
-  }
+    return redirect('/')
+  } 
+  return redirect('/weight-dashboard')
 }
 
 export default function Profile({ loaderData }: Route.ComponentProps) {
