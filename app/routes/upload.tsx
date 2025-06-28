@@ -1,24 +1,26 @@
-import { getAuth } from '@clerk/react-router/ssr.server'
-import React from 'react'
-import { Link, redirect } from 'react-router'
-import type { Route } from './+types/upload'
+import { getAuth } from "@clerk/react-router/ssr.server";
+import React from "react";
+import { Link, redirect } from "react-router";
+import type { Route } from "./+types/upload";
+import Header from "~/components/Header";
 
 export async function loader(args: Route.LoaderArgs) {
   // Use `getAuth()` to get the user's ID
-  const { userId } = await getAuth(args)
-  console.log("userId",userId)
+  const { userId } = await getAuth(args);
+  console.log("userId", userId);
 
   // Protect the route by checking if the user is signed in
   if (!userId) {
-    return redirect('/unauthorized')
+    return redirect("/unauthorized");
   }
-  return null
+  return null;
 }
-
 
 const Upload = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen p-4">
+    <>
+      <Header user={true} />
+      <div className="flex items-center justify-center min-h-screen p-4">
         <div className="w-full max-w-md bg-white p-6 rounded-xl shadow-lg border border-gray-200">
           <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
             Track Your Weight
@@ -45,7 +47,8 @@ const Upload = () => {
           </div>
         </div>
       </div>
-  )
-}
+    </>
+  );
+};
 
-export default Upload
+export default Upload;

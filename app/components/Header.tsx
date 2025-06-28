@@ -8,7 +8,11 @@ import {
   SignInButton,
 } from "@clerk/react-router";
 
-const Header = () => {
+interface exists {
+  user: boolean
+}
+
+const Header = ({ user }: exists) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -36,18 +40,22 @@ const Header = () => {
           >
             Home
           </Link>
-          <Link
-            to={`/weight-dashboard`}
-            className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
-          >
-            Weight Dashboard
-          </Link>
-          <Link
-            to={`/upload`}
-            className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
-          >
-            Upload Weight
-          </Link>
+          {user && (
+            <>
+              <Link
+                to={`/weight-dashboard`}
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+              >
+                Weight Dashboard
+              </Link>
+              <Link
+                to={`/upload`}
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+              >
+                Upload Weight
+              </Link>
+            </>
+          )}
 
           {/* clerk */}
           <div className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100">

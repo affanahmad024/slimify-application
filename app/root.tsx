@@ -76,7 +76,6 @@ export default function App({ loaderData }: Route.ComponentProps) {
       signUpFallbackRedirectUrl="/"
       signInFallbackRedirectUrl="/"
     >
-      <Header />
       <main>
         <Outlet />
       </main>
