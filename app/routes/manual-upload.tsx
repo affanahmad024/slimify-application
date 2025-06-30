@@ -113,7 +113,7 @@ const ManualUpload = () => {
                           variant="outline"
                           // name="date-picker"
                           id="date-picker-display"
-                          className="w-32 justify-between font-normal"
+                          className="cursor-pointer w-32 justify-between font-normal"
                         >
                           {/* {date ? date.toLocaleDateString() : "Select date"} */}
                           {date ? format(date, "PPP") : "Select date"}
@@ -146,7 +146,7 @@ const ManualUpload = () => {
                       id="time-picker"
                       step="1"
                       defaultValue="08:30:00"
-                      className="bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
+                      className="cursor-pointer bg-background appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
                     />
                   </div>
                 </div>
@@ -167,7 +167,7 @@ const ManualUpload = () => {
                     placeholder="e.g., 75.5"
                     step=".01"
                     required
-                    className="block w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 text-gray-800 pr-12"
+                    className="cursor-pointer block w-full p-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 text-gray-800 pr-12"
                   />
                   <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                     <span className="text-gray-500 sm:text-sm" id="weight-unit">
@@ -179,7 +179,7 @@ const ManualUpload = () => {
 
               <button
                 type="submit"
-                className="w-full bg-red-600 text-white py-3 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition duration-150 ease-in-out text-lg font-medium shadow-md mb-4"
+                className="cursor-pointer w-full bg-red-600 text-white py-3 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition duration-150 ease-in-out text-lg font-medium shadow-md mb-4"
               >
                 <i className="fas fa-save mr-2"></i> Save Weight
               </button>
@@ -188,7 +188,7 @@ const ManualUpload = () => {
             <Link to={`/upload`}>
               <button
                 type="button"
-                className="w-full flex items-center justify-center py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-100 transition duration-150 ease-in-out text-sm"
+                className="cursor-pointer w-full flex items-center justify-center py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-100 transition duration-150 ease-in-out text-sm"
               >
                 <i className="fas fa-arrow-left mr-2"></i> Back to Selection
               </button>

@@ -1,3 +1,4 @@
+
 import { getAuth } from "@clerk/react-router/ssr.server";
 import { PlusCircle } from "lucide-react";
 import React, { useMemo } from "react";
@@ -10,6 +11,8 @@ import Weight from "models/weight.model";
 import date from "date-and-time";
 import { sortData } from "~/lib/use";
 import Header from "~/components/Header";
+import WeightChart from "~/components/WeightChart";
+import WeightTracker from "~/components/WeightTracker";
 
 export interface weightRec {
   //user sees
@@ -70,7 +73,90 @@ const Dashboard = () => {
   }, [data, userId]);
 
   weightData = sortData(weightData);
-  // console.log("weightData sorted", weightData);
+  console.log("weightData sorted", weightData);
+  const sampleData = [
+    {
+      date: "01-Jun-2025",
+      time: "01:28 AM",
+      weight: 78,
+      dayOfWeek: "Sun",
+      year: "2025",
+      month: "Jun",
+      dateNum: "01",
+    },
+    {
+      date: "11-Jun-2025",
+      time: "02:00 PM",
+      weight: 99,
+      dayOfWeek: "Wed",
+      year: "2025",
+      month: "Jun",
+      dateNum: "11",
+    },
+    {
+      date: "16-Jun-2025",
+      time: "01:28 AM",
+      weight: 89,
+      dayOfWeek: "Mon",
+      year: "2025",
+      month: "Jun",
+      dateNum: "16",
+    },
+    {
+      date: "25-Jun-2025",
+      time: "12:55 AM",
+      weight: 78,
+      dayOfWeek: "Wed",
+      year: "2025",
+      month: "Jun",
+      dateNum: "25",
+    },
+    {
+      date: "27-Jun-2025",
+      time: "12:09 AM",
+      weight: 89,
+      dayOfWeek: "Fri",
+      year: "2025",
+      month: "Jun",
+      dateNum: "27",
+    },
+    {
+      date: "27-Jun-2025",
+      time: "01:29 AM",
+      weight: 45.5,
+      dayOfWeek: "Fri",
+      year: "2025",
+      month: "Jun",
+      dateNum: "27",
+    },
+    {
+      date: "30-Jun-2025",
+      time: "08:00 PM",
+      weight: 77,
+      dayOfWeek: "Mon",
+      year: "2025",
+      month: "Jun",
+      dateNum: "30",
+    },
+    {
+      date: "09-Jul-2025",
+      time: "01:29 AM",
+      weight: 90,
+      dayOfWeek: "Wed",
+      year: "2025",
+      month: "Jul",
+      dateNum: "09",
+    },
+    {
+      date: "11-Jul-2025",
+      time: "01:29 AM",
+      weight: 89,
+      dayOfWeek: "Fri",
+      year: "2025",
+      month: "Jul",
+      dateNum: "11",
+    },
+  ];
   return (
     <>
       <Header user={true} />
@@ -100,16 +186,17 @@ const Dashboard = () => {
 
           {weightData.length > 0 && (
             <div className="grid grid-cols-1 gap-4 sm:gap-6">
-              {/* <Card className="bg-white shadow-lg border-0">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg sm:text-xl font-semibold text-gray-800">
-                  Weight Progress Chart
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-3 sm:p-6">
-                <WeightChart data={weightData} />
-              </CardContent>
-            </Card> */}
+              <Card className="bg-white shadow-lg border-0">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-lg sm:text-xl font-semibold text-gray-800">
+                    Weight Progress Chart
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-3 sm:p-6">
+                  <WeightChart data={weightData} />
+                </CardContent>
+              </Card>
+              {/* <WeightTracker data={sampleData} /> */}
 
               <Card className="bg-white shadow-lg border-0">
                 <CardHeader className="pb-3">
@@ -126,7 +213,7 @@ const Dashboard = () => {
 
           {/* Floating button */}
           <Link to={`/upload`} className="fixed bottom-8 right-8 z-40">
-            <button className="bg-orange-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95">
+            <button className="bg-orange-600 cursor-pointer text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95">
               <PlusCircle size={28} />
             </button>
           </Link>

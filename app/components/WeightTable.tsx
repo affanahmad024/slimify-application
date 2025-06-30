@@ -54,7 +54,7 @@ export const WeightTable = ({ data }: WeightTableProps) => {
       {data.length > 6 && (
         <div className="text-center pt-2 sm:pt-3">
           <button
-            className="text-orange-600 hover:text-orange-700 text-xs sm:text-sm font-medium"
+            className="text-orange-600 cursor-pointer hover:text-orange-700 text-xs sm:text-sm font-medium"
             onClick={toggle}
           >
             {show ? (<>View Less Records</>):(<>View All Records ({data.length} total)</>)}

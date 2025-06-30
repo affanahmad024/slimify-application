@@ -49,7 +49,7 @@ export default function Home() {
             track, and analyze your weight data with our intuitive tools and
             smart features.
           </p>
-          <div className="px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
+          <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
             {userId ? (
               <Link to={`weight-dashboard`}>Join Slimify Today!</Link>
             ) : (
@@ -163,7 +163,7 @@ export default function Home() {
 
           <div className="px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
             {userId ? (
-              <Link to={`weight-dashboard`}>Sign Up for Free</Link>
+              <Link to={`weight-dashboard`} className="cursor-pointer">Sign Up for Free</Link>
             ) : (
               <SignedOut>
                 <SignInButton>Join Slimify Today!</SignInButton>

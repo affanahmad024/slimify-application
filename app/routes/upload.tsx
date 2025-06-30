@@ -32,14 +32,14 @@ const Upload = () => {
               How would you like to log your weight?
             </h2>
             <Link to={`/manual-upload`}>
-              <button className="w-full flex items-center justify-center p-5 bg-red-100 text-red-800 border border-red-300 rounded-xl shadow-md hover:bg-red-200 transition duration-150 ease-in-out text-lg font-medium mb-5">
+              <button className="cursor-pointer w-full flex items-center justify-center p-5 bg-red-100 text-red-800 border border-red-300 rounded-xl shadow-md hover:bg-red-200 transition duration-150 ease-in-out text-lg font-medium mb-5">
                 <i className="fas fa-calendar-alt text-red-600 text-2xl mr-4"></i>{" "}
                 Manual Entry
               </button>
             </Link>
 
             <Link to={`/camera-upload`}>
-              <button className="w-full flex items-center justify-center p-5 bg-orange-100 text-orange-800 border border-orange-300 rounded-xl shadow-md hover:bg-orange-200 transition duration-150 ease-in-out text-lg font-medium">
+              <button className="cursor-pointer w-full flex items-center justify-center p-5 bg-orange-100 text-orange-800 border border-orange-300 rounded-xl shadow-md hover:bg-orange-200 transition duration-150 ease-in-out text-lg font-medium">
                 <i className="fas fa-camera text-orange-600 text-2xl mr-4"></i>{" "}
                 Upload from Camera
               </button>

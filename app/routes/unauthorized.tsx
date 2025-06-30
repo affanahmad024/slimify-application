@@ -27,7 +27,7 @@ const Unautorized = () => {
           </p>
 
           {/* Placeholder for Sign-In Button/Action - Clerk components are not supported in Canvas */}
-          <div className="px-6 py-3 text-white font-semibold rounded-lg bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-md">
+          <div className="cursor-pointer px-6 py-3 text-white font-semibold rounded-lg bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-md">
             <SignedOut>
               <SignInButton />
             </SignedOut>
