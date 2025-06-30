@@ -22,19 +22,19 @@ export async function loader(args: Route.LoaderArgs) {
 
   let user = false;
   if (userId) {
-    user = true
+    user = true;
   }
 
   // Protect the route by checking if the user is signed in
 
   return Response.json({
     userId,
-    user: user
+    user: user,
   });
 }
 
 export default function Home() {
-  const { userId,user } = useLoaderData();
+  const { userId, user } = useLoaderData();
   return (
     <>
       <Header user={user} />
@@ -49,15 +49,21 @@ export default function Home() {
             track, and analyze your weight data with our intuitive tools and
             smart features.
           </p>
-          <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
+          <>
             {userId ? (
-              <Link to={`weight-dashboard`}>Join Slimify Today!</Link>
+              <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
+                <Link to={`/weight-dashboard`}>Join Slimify Today!</Link>
+              </div>
             ) : (
               <SignedOut>
-                <SignInButton>Join Slimify Today!</SignInButton>
+                <SignInButton>
+                  <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
+                    Join Slimify Today!
+                  </div>
+                </SignInButton>
               </SignedOut>
             )}
-          </div>
+          </>
         </main>
 
         <section className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -161,15 +167,21 @@ export default function Home() {
             first step towards a healthier, happier you.
           </p>
 
-          <div className="px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
+          <>
             {userId ? (
-              <Link to={`weight-dashboard`} className="cursor-pointer">Sign Up for Free</Link>
+              <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
+                <Link to={`/weight-dashboard`}>Sign Up For Free</Link>
+              </div>
             ) : (
               <SignedOut>
-                <SignInButton>Join Slimify Today!</SignInButton>
+                <SignInButton>
+                  <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
+                    Sign Up For Free
+                  </div>
+                </SignInButton>
               </SignedOut>
             )}
-          </div>
+          </>
         </section>
       </div>
     </>
