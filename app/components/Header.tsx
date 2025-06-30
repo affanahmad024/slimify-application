@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import {
   ClerkProvider,
   SignedIn,
@@ -13,6 +13,7 @@ interface exists {
 }
 
 const Header = ({ user }: exists) => {
+  let navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -34,31 +35,32 @@ const Header = ({ user }: exists) => {
         {/* Desktop Navigation Links */}
         {/* These links are visible on medium screens and above. */}
         <div className="hidden md:flex space-x-6 text-black">
-          <Link
-            to={`/`}
-            className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+          
+          <div
+            onClick={()=>navigate("/")}
+            className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
           >
             Home
-          </Link>
+          </div>
           {user && (
             <>
-              <Link
-                to={`/weight-dashboard`}
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+              <div
+                onClick={()=>navigate("/weight-dashboard")}
+                className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
               >
                 Weight Dashboard
-              </Link>
-              <Link
-                to={`/upload`}
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+              </div>
+              <div
+                onClick={()=>navigate("/upload")}
+                className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
               >
                 Upload Weight
-              </Link>
+              </div>
             </>
           )}
 
           {/* clerk */}
-          <div className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100">
+          <div className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100">
             <SignedOut>
               <SignInButton />
             </SignedOut>
@@ -73,7 +75,7 @@ const Header = ({ user }: exists) => {
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-gray-600 hover:text-gray-800tion duration-300 ease-in-out"
+            className="cursor-pointer text-gray-600 hover:text-gray-800tion duration-300 ease-in-out"
             aria-label="Toggle menu" // Essential for accessibility
           >
             {/* SVG icon dynamically changes between hamburger and 'X' based on 'isOpen' state */}
@@ -116,31 +118,31 @@ const Header = ({ user }: exists) => {
       {/* This menu is hidden by default on small screens and becomes visible when 'isOpen' is true. */}
       <div className={`md:hidden ${isOpen ? "block" : "hidden"} mt-4`}>
         <div className="flex flex-col space-y-2 px-2 pb-3 sm:px-3">
-          <Link
-            to={`/`}
-            className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+          <div
+            onClick={()=>navigate("/")}
+            className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
           >
             Home
-          </Link>
+          </div>
           {user && (
             <>
-              <Link
-                to={`/weight-dashboard`}
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+              <div
+                onClick={()=>navigate("/weight-dashboard")}
+                className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
               >
                 Weight Dashboard
-              </Link>
-              <Link
-                to={`/upload`}
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+              </div>
+              <div
+                onClick={()=>navigate("/upload")}
+                className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
               >
                 Upload Weight
-              </Link>
+              </div>
             </>
           )}
 
           {/* clerk */}
-          <div className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100">
+          <div className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100">
             <SignedOut>
               <SignInButton />
             </SignedOut>
