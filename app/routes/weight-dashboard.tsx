@@ -1,7 +1,6 @@
-
 import { getAuth } from "@clerk/react-router/ssr.server";
 import { PlusCircle } from "lucide-react";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Link, redirect, useLoaderData } from "react-router";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import { WeightStats } from "~/components/WeightStats";
@@ -12,7 +11,6 @@ import date from "date-and-time";
 import { sortData } from "~/lib/use";
 import Header from "~/components/Header";
 import WeightChart from "~/components/WeightChart";
-import WeightTracker from "~/components/WeightTracker";
 
 export interface weightRec {
   //user sees
