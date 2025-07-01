@@ -42,36 +42,33 @@ export async function loader(args: Route.LoaderArgs) {
   const data = await Weight.find({ userId });
   // console.log("data", data);
   return Response.json({
-    userId,
     data,
   });
 }
 
 const Dashboard = () => {
-  const { userId, data } = useLoaderData();
-  let weightData = useMemo(() => {
-    return data.map((info: weightRecord) => {
-      const pattern1 = date.compile("ddd, MMM DD YYYY");
-      const pattern2 = date.compile("hh:mm A [GMT]Z");
-      const dd = date.format(new Date(info.time), pattern1);
-      const t = date.format(new Date(info.time), pattern2);
-      const setDate = dd.substring(5).split(" ");
-      const set = setDate[1] + "-" + setDate[0] + "-" + setDate[2];
+  const { data } = useLoaderData();
+  let Data = data.map((info: weightRecord) => {
+    const pattern1 = date.compile("ddd, MMM DD YYYY");
+    const pattern2 = date.compile("hh:mm A [GMT]Z");
+    const dd = date.format(new Date(info.time), pattern1);
+    const t = date.format(new Date(info.time), pattern2);
+    const setDate = dd.substring(5).split(" ");
+    const set = setDate[1] + "-" + setDate[0] + "-" + setDate[2];
 
-      return {
-        date: set,
-        time: t.substring(0, 8),
-        weight: info.weight,
-        dayOfWeek: dd.substring(0, 3),
-        year: setDate[2],
-        month: setDate[0],
-        dateNum: setDate[1],
-      };
-    });
-  }, [data, userId]);
+    return {
+      date: set,
+      time: t.substring(0, 8),
+      weight: info.weight,
+      dayOfWeek: dd.substring(0, 3),
+      year: setDate[2],
+      month: setDate[0],
+      dateNum: setDate[1],
+    };
+  });
 
-  weightData = sortData(weightData);
-  console.log("weightData sorted", weightData);
+  const weightData = sortData(Data);
+  // console.log("weightData sorted", weightData);
   // const sampleData = [
   //   {
   //     date: "01-Jun-2025",
@@ -175,7 +172,7 @@ const Dashboard = () => {
                 to={`/upload`}
                 className="text-sm sm:text-lg text-center text-orange-600 hover:text-orange-700"
               >
-                <button className="bg-amber-100 p-2 rounded-lg">
+                <button className="cursor-pointer bg-amber-100 p-2 rounded-lg">
                   Add Your Weight Data to Track
                 </button>
               </Link>
