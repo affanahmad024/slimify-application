@@ -45,7 +45,7 @@ export const action = async ({ request }: Route.ClientActionArgs) => {
     if (!selectedDate) {
       return Response.json({ message: "Please Select date" });
     }
-    const time = selectedDate + "T" + weightTime + ".000Z";
+    const time = selectedDate + "T" + weightTime;
     const weightInput = fd.get("weightInput");
 
     const weight = new Weight({
@@ -53,6 +53,7 @@ export const action = async ({ request }: Route.ClientActionArgs) => {
       weight: weightInput,
       time: time,
     });
+    console.log(weight)
 
     await weight.save();
     console.log("data saved");
