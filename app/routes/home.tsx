@@ -51,9 +51,11 @@ export default function Home() {
           </p>
           <>
             {userId ? (
-              <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
-                <Link to={`/weight-dashboard`}>Join Slimify Today!</Link>
-              </div>
+              <Link to={`/weight-dashboard`}>
+                <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
+                  Join Slimify Today!
+                </div>
+              </Link>
             ) : (
               <SignedOut>
                 <SignInButton>
@@ -157,32 +159,26 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="w-full max-w-4xl bg-white rounded-xl shadow-custom p-8 sm:p-12 text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
-            Ready to Transform Your Health?
-          </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Slimify is more than just a weight tracker; it's a dedicated
-            companion for your wellness journey. Join our community and take the
-            first step towards a healthier, happier you.
-          </p>
+        {!userId && (
+          <section className="w-full max-w-4xl bg-white rounded-xl shadow-custom p-8 sm:p-12 text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">
+              Ready to Transform Your Health?
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Slimify is more than just a weight tracker; it's a dedicated
+              companion for your wellness journey. Join our community and take
+              the first step towards a healthier, happier you.
+            </p>
 
-          <>
-            {userId ? (
-              <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
-                <Link to={`/weight-dashboard`}>Sign Up For Free</Link>
-              </div>
-            ) : (
-              <SignedOut>
-                <SignInButton>
-                  <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
-                    Sign Up For Free
-                  </div>
-                </SignInButton>
-              </SignedOut>
-            )}
-          </>
-        </section>
+            <SignedOut>
+              <SignInButton>
+                <div className="cursor-pointer px-8 py-4 bg-primary-red text-white text-xl font-semibold rounded-xl bg-red-500 hover:bg-red-700 transition duration-300 transform hover:scale-105 shadow-xl">
+                  Sign Up For Free
+                </div>
+              </SignInButton>
+            </SignedOut>
+          </section>
+        )}
       </div>
     </>
   );

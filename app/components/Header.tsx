@@ -22,7 +22,8 @@ const Header = ({ user }: exists) => {
   return (
     <nav className="bg-white shadow-md p-4 rounded-b-lg font-sans">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-2xl font-bold text-gray-800 flex justify-between items-center">
+        
+        <div onClick={() => navigate("/")} className="cursor-pointer text-2xl font-bold text-gray-800 flex justify-between items-center">
           {" "}
           <img
             src="./extension_icon.png"
@@ -32,13 +33,12 @@ const Header = ({ user }: exists) => {
           />
           Slimify
         </div>
-        {/* Desktop Navigation Links */}
-        {/* These links are visible on medium screens and above. */}
+
         <div className="hidden md:flex space-x-6 text-black">
           
           <div
             onClick={()=>navigate("/")}
-            className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+            className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center"
           >
             Home
           </div>
@@ -46,13 +46,13 @@ const Header = ({ user }: exists) => {
             <>
               <div
                 onClick={()=>navigate("/weight-dashboard")}
-                className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+                className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center"
               >
                 Weight Dashboard
               </div>
               <div
                 onClick={()=>navigate("/upload")}
-                className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
+                className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center"
               >
                 Upload Weight
               </div>
@@ -60,7 +60,7 @@ const Header = ({ user }: exists) => {
           )}
 
           {/* clerk */}
-          <div className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100">
+          <div className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center">
             <SignedOut>
               <SignInButton />
             </SignedOut>

@@ -102,7 +102,7 @@ const ManualUpload = () => {
                 />
               )}
               <div className="mb-4">
-                <div className="flex gap-4">
+                <div className="flex gap-6">
                   <div className="flex flex-col gap-3">
                     <Label htmlFor="date-picker" className="px-1">
                       Date
@@ -113,7 +113,7 @@ const ManualUpload = () => {
                           variant="outline"
                           // name="date-picker"
                           id="date-picker-display"
-                          className="cursor-pointer w-32 justify-between font-normal"
+                          className="cursor-pointer justify-between font-normal"
                         >
                           {/* {date ? date.toLocaleDateString() : "Select date"} */}
                           {date ? format(date, "PPP") : "Select date"}
