@@ -22,17 +22,43 @@ import process from 'node:process'
 import mongoose from "mongoose";
 
 export async function loader(args: Route.LoaderArgs) {
-  // console.log({mongoURI: process.env.MONGO_URI})
-  console.log("Connecting to MongoDB...");
-  mongoose
-    .connect(process.env.MONGO_URI as string)
-    .then(() => console.log("MongoDB connected"))
-    .catch((e) => {
-      console.log("MongoDB connection error:", e);
-      throw e;
-    });
+  // I like to throw an error if the app doesn't get the right env variables
+  console.log("inside db");
+  if (!process.env.MONGODB_URI) {
+    throw new Error("MONGODB_URI not provided");
+  }
+
+  try {
+    // If readyState === 0 then there is no connection
+    if (mongoose.connection.readyState === 0) {
+      await mongoose.connect(process.env.MONGODB_URI);
+      console.log("Connected to DB");
+    }
+  } catch (error) {
+    console.log(error);
+  }
   return rootAuthLoader(args);
 }
+
+// async function db() {
+//   // I like to throw an error if the app doesn't get the right env variables
+//   console.log("inside db");
+//   if (!process.env.MONGODB_URI) {
+//     throw new Error("MONGODB_URI not provided");
+//   }
+
+//   try {
+//     // If readyState === 0 then there is no connection
+//     if (mongoose.connection.readyState === 0) {
+//       await mongoose.connect(process.env.MONGODB_URI);
+//       console.log("Connected to DB");
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// db()
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
