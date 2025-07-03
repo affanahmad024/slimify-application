@@ -11,6 +11,7 @@ import date from "date-and-time";
 import { sortData } from "~/lib/use";
 import Header from "~/components/Header";
 import WeightChart from "~/components/WeightChart";
+import WeightTracker from "~/components/WeightTracker";
 
 export interface weightRec {
   //user sees
@@ -166,18 +167,6 @@ const Dashboard = () => {
             </p>
           </div>
           <WeightStats data={weightData} />
-          {weightData.length < 1 && (
-            <div className="flex flex-col gap-4 w-full">
-              <Link
-                to={`/upload`}
-                className="text-sm sm:text-lg text-center text-orange-600 hover:text-orange-700"
-              >
-                <button className="cursor-pointer bg-amber-100 p-2 rounded-lg">
-                  Add Your Weight Data to Track
-                </button>
-              </Link>
-            </div>
-          )}
 
           {weightData.length > 0 && (
             <div className="grid grid-cols-1 gap-4 sm:gap-6">
@@ -191,7 +180,7 @@ const Dashboard = () => {
                   <WeightChart data={weightData} />
                 </CardContent>
               </Card>
-              {/* <WeightTracker data={sampleData} /> */}
+              {/* <WeightTracker data={sampleData} />  */}
 
               <Card className="bg-white shadow-lg border-0">
                 <CardHeader className="pb-3">
