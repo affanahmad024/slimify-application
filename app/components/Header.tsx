@@ -22,8 +22,10 @@ const Header = ({ user }: exists) => {
   return (
     <nav className="bg-white shadow-md p-4 rounded-b-lg font-sans">
       <div className="container mx-auto flex justify-between items-center">
-        
-        <div onClick={() => navigate("/")} className="cursor-pointer text-2xl font-bold text-gray-800 flex justify-between items-center">
+        <div
+          onClick={() => navigate("/")}
+          className="cursor-pointer text-2xl font-bold text-gray-800 flex justify-between items-center"
+        >
           {" "}
           <img
             src="./extension_icon.png"
@@ -35,9 +37,8 @@ const Header = ({ user }: exists) => {
         </div>
 
         <div className="hidden md:flex space-x-6 text-black">
-          
           <div
-            onClick={()=>navigate("/")}
+            onClick={() => navigate("/")}
             className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center"
           >
             Home
@@ -45,19 +46,26 @@ const Header = ({ user }: exists) => {
           {user && (
             <>
               <div
-                onClick={()=>navigate("/weight-dashboard")}
+                onClick={() => navigate("/weight-dashboard")}
                 className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center"
               >
                 Weight Dashboard
               </div>
               <div
-                onClick={()=>navigate("/upload")}
+                onClick={() => navigate("/upload")}
                 className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center"
               >
                 Upload Weight
               </div>
             </>
           )}
+
+          <div
+            onClick={() => navigate("/bmi-calculator")}
+            className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center"
+          >
+            Calculate BMI
+          </div>
 
           {/* clerk */}
           <div className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center">
@@ -119,7 +127,7 @@ const Header = ({ user }: exists) => {
       <div className={`md:hidden ${isOpen ? "block" : "hidden"} mt-4`}>
         <div className="flex flex-col space-y-2 px-2 pb-3 sm:px-3">
           <div
-            onClick={()=>navigate("/")}
+            onClick={() => navigate("/")}
             className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
           >
             Home
@@ -127,19 +135,26 @@ const Header = ({ user }: exists) => {
           {user && (
             <>
               <div
-                onClick={()=>navigate("/weight-dashboard")}
+                onClick={() => navigate("/weight-dashboard")}
                 className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
               >
                 Weight Dashboard
               </div>
               <div
-                onClick={()=>navigate("/upload")}
+                onClick={() => navigate("/upload")}
                 className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
               >
                 Upload Weight
               </div>
             </>
           )}
+
+          <div
+            onClick={() => navigate("/bmi-calculator")}
+            className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center"
+          >
+            Calculate BMI
+          </div>
 
           {/* clerk */}
           <div className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100">
