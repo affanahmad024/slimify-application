@@ -57,6 +57,12 @@ const Header = ({ user }: exists) => {
               >
                 Upload Weight
               </div>
+              <div
+                onClick={() => navigate("/sticky-notes")}
+                className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center"
+              >
+                Add Notes
+              </div>
             </>
           )}
 
@@ -145,6 +151,12 @@ const Header = ({ user }: exists) => {
                 className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100"
               >
                 Upload Weight
+              </div>
+              <div
+                onClick={() => navigate("/sticky-notes")}
+                className="cursor-pointer text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out hover:bg-gray-100 flex justify-between items-center"
+              >
+                Add Notes
               </div>
             </>
           )}

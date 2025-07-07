@@ -11,6 +11,7 @@ import {
 import { weightPrompt } from "~/lib/gemini";
 import type { Route } from "./+types/camera-upload";
 import Header from "~/components/Header";
+import BottomNav from "~/components/bottomNav";
 
 export async function loader(args: Route.LoaderArgs) {
   // Use `getAuth()` to get the user's ID
@@ -148,6 +149,7 @@ const CameraUpload = () => {
           </Link>
         </div>
       </div>
+      <BottomNav user={true} />
     </>
   );
 };

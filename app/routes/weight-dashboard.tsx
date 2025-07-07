@@ -12,6 +12,7 @@ import { sortData } from "~/lib/use";
 import Header from "~/components/Header";
 import WeightChart from "~/components/WeightChart";
 import WeightTracker from "~/components/WeightTracker";
+import BottomNav from "~/components/bottomNav";
 
 export interface weightRec {
   //user sees
@@ -196,11 +197,11 @@ const Dashboard = () => {
           )}
 
           {/* Floating button */}
-          <Link to={`/upload`} className="fixed bottom-8 right-8 z-40">
+          {/* <Link to={`/upload`} className="fixed bottom-8 right-8 z-40">
             <button className="bg-orange-600 cursor-pointer text-white p-4 rounded-full shadow-lg flex items-center justify-center hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-75 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95">
               <PlusCircle size={28} />
             </button>
-          </Link>
+          </Link> */}
 
           {/* Label beside button */}
           {/* <p className="fixed bottom-15 right-25 z-40 text-orange-400 text-sm hidden md:block">
@@ -208,6 +209,7 @@ const Dashboard = () => {
         </p> */}
         </div>
       </div>
+      <BottomNav user={true} />
     </>
   );
 };

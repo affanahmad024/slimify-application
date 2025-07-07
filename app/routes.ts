@@ -7,5 +7,6 @@ export default [
   route("camera-upload", "routes/camera-upload.tsx"),
   route("weight-dashboard", "routes/weight-dashboard.tsx"),
   route("bmi-calculator", "routes/bmi.tsx"),
-  route("unauthorized","routes/unauthorized.tsx")
+  route("unauthorized","routes/unauthorized.tsx"),
+  route("sticky-notes", "routes/sticky-notes.tsx")
 ] satisfies RouteConfig;

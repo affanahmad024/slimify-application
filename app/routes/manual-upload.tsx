@@ -21,6 +21,7 @@ import { ChevronDownIcon } from "lucide-react";
 import { Input } from "~/components/ui/input";
 import { format } from "date-fns";
 import Header from "~/components/Header";
+import BottomNav from "~/components/bottomNav";
 
 export async function loader(args: Route.LoaderArgs) {
   // Use `getAuth()` to get the user's ID
@@ -197,6 +198,7 @@ const ManualUpload = () => {
           </div>
         </div>
       </div>
+      <BottomNav user={true}/>
     </>
   );
 };

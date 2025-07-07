@@ -6,6 +6,9 @@ import { Link, redirect, useLoaderData } from "react-router";
 import Header from "~/components/Header";
 import HomeForLoggedInUser from "~/components/HomeForLoggedInUser";
 import HomeForLoggedOutUser from "~/components/HomeForLoggedOutUser";
+import { NotebookPen, Pencil, Plus, Weight, X } from "lucide-react";
+import { useState } from "react";
+import BottomNav from "~/components/bottomNav";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -45,6 +48,7 @@ export default function Home() {
       ) : (
         <HomeForLoggedOutUser userId={userId} />
       )}
+      <BottomNav user={user}/>
     </>
   );
 }

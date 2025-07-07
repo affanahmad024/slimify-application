@@ -3,6 +3,7 @@ import React from "react";
 import { Link, redirect } from "react-router";
 import type { Route } from "./+types/upload";
 import Header from "~/components/Header";
+import BottomNav from "~/components/bottomNav";
 
 export async function loader(args: Route.LoaderArgs) {
   // Use `getAuth()` to get the user's ID
@@ -47,6 +48,7 @@ const Upload = () => {
           </div>
         </div>
       </div>
+      <BottomNav user={true} />
     </>
   );
 };
