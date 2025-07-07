@@ -4,7 +4,7 @@ import type { Route } from "./+types/sticky-notes";
 import { Form, redirect, useLoaderData } from "react-router";
 import Notes from "models/notes.model";
 import { Pencil, Trash } from "lucide-react";
-import BottomNav from "~/components/bottomNav";
+import BottomNav from "~/components/BottomNav";
 import Header from "~/components/Header";
 
 export async function loader(args: Route.LoaderArgs) {

@@ -3,7 +3,7 @@ import { Form, useActionData, useLoaderData } from "react-router";
 import type { Route } from "./+types/bmi";
 import { getAuth } from "@clerk/react-router/ssr.server";
 import Header from "~/components/Header";
-import BottomNav from "~/components/bottomNav";
+import BottomNav from "~/components/BottomNav";
 
 export const loader = async (args: Route.LoaderArgs) => {
   const { userId } = await getAuth(args);

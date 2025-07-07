@@ -3,7 +3,7 @@ import React from "react";
 import { Link, redirect } from "react-router";
 import type { Route } from "./+types/upload";
 import Header from "~/components/Header";
-import BottomNav from "~/components/bottomNav";
+import BottomNav from "~/components/BottomNav";
 
 export async function loader(args: Route.LoaderArgs) {
   // Use `getAuth()` to get the user's ID

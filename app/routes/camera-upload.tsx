@@ -11,7 +11,7 @@ import {
 import { weightPrompt } from "~/lib/gemini";
 import type { Route } from "./+types/camera-upload";
 import Header from "~/components/Header";
-import BottomNav from "~/components/bottomNav";
+import BottomNav from "~/components/BottomNav";
 
 export async function loader(args: Route.LoaderArgs) {
   // Use `getAuth()` to get the user's ID

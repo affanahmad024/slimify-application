@@ -8,7 +8,7 @@ import HomeForLoggedInUser from "~/components/HomeForLoggedInUser";
 import HomeForLoggedOutUser from "~/components/HomeForLoggedOutUser";
 import { NotebookPen, Pencil, Plus, Weight, X } from "lucide-react";
 import { useState } from "react";
-import BottomNav from "~/components/bottomNav";
+import BottomNav from "~/components/BottomNav";
 
 export function meta({}: Route.MetaArgs) {
   return [
